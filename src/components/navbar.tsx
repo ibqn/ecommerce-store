@@ -1,10 +1,13 @@
 import Link from 'next/link'
 import { Container } from './container'
 import { MainNav } from './main-nav'
+import { getCategories } from '@/actions/get-categories'
 
 type Props = {}
 
-export const Navbar = (props: Props) => {
+export const Navbar = async (props: Props) => {
+  const categories = await getCategories()
+
   return (
     <div className="border-b">
       <Container>
@@ -13,7 +16,7 @@ export const Navbar = (props: Props) => {
             <p className="text-xl font-bold uppercase">Store</p>
           </Link>
 
-          <MainNav data={[]} />
+          <MainNav data={categories} />
         </div>
       </Container>
     </div>
