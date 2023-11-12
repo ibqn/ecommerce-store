@@ -1,2 +1,2 @@
-export { type Billboard } from './billboard'
-export { type Category } from './category'
+export { type BillboardType } from './billboard'
+export { type CategoryType } from './category'

@@ -1,5 +1,5 @@
-export type Billboard = {
+export type BillboardType = {
   id: string
-  name: string
+  label: string
   imageUrl: string
 }

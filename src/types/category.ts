@@ -1,7 +1,7 @@
-import { type Billboard } from './billboard'
+import { type BillboardType } from './billboard'
 
-export type Category = {
+export type CategoryType = {
   id: string
   name: string
-  billboard: Billboard
+  billboard: BillboardType
 }
