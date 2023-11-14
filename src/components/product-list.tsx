@@ -12,16 +12,14 @@ export const ProductList = (props: Props) => {
   return (
     <div className="space-y-4">
       <h3 className="text-3xl font-bold">{title}</h3>
+
       {products.length === 0 && <NoResults />}
+
       <div className="lg:grid-flow-col-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {products.map((product) => {
           const { id } = product
 
-          return (
-            <div key={id}>
-              <ProductCard product={product} />
-            </div>
-          )
+          return <ProductCard key={id} product={product} />
         })}
       </div>
     </div>

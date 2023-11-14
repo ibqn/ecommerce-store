@@ -12,16 +12,21 @@ type Query = {
 
 export const getProducts = async (query: Query): Promise<ProductType[]> => {
   const { categoryId, colorId, sizeId, isFeatured } = query
+
   try {
-    const url = qs.stringifyUrl({
-      url: API_PRODUCT_URL,
-      query: {
-        colorId,
-        sizeId,
-        categoryId,
-        isFeatured,
+    const url = qs.stringifyUrl(
+      {
+        url: API_PRODUCT_URL,
+        query: {
+          colorId,
+          sizeId,
+          categoryId,
+          isFeatured,
+        },
       },
-    })
+      { skipNull: true }
+    )
+
     const response = await fetch(url)
     return await response.json()
   } catch (error) {
