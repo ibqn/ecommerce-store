@@ -15,7 +15,7 @@ export const ProductList = (props: Props) => {
 
       {products.length === 0 && <NoResults />}
 
-      <div className="lg:grid-flow-col-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+      <div className="lg:grid-flow-col-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
         {products.map((product) => {
           const { id } = product
 
