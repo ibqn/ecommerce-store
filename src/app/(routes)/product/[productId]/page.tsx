@@ -1,5 +1,6 @@
 import { getProduct, getProducts } from '@/actions'
 import { Container } from '@/components'
+import { Gallery } from '@/components/gallery'
 import { ProductList } from '@/components/product-list'
 
 type Props = {
@@ -17,12 +18,14 @@ export default async function Page({ params }: Props) {
     categoryId: product?.category?.id,
   })
 
+  console.log('product', product)
+
   return (
     <div className="bg-white">
       <Container>
         <div className="px-4 py-10 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 lg:items-start lg:gap-x-8">
-            <div>Gallery</div>
+            <Gallery images={product?.images ?? []} />
 
             <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">Info</div>
           </div>
