@@ -23,7 +23,7 @@ export const Gallery = ({ images }: Props) => {
       <div className="mx-auto hidden w-full max-w-2xl sm:block lg:max-h-none">
         {images.map((image) => {
           return (
-            <TabsContent key={image.id} value={image.id}>
+            <TabsContent key={image.id} value={image.id} className="mt-0">
               <div className="relative flex aspect-square h-full w-full overflow-hidden sm:rounded-lg">
                 <Image
                   src={image.url}
