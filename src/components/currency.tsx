@@ -1,9 +1,14 @@
-import { formatPrice } from '@/utils'
+import { cn, formatPrice } from '@/utils'
+import { ComponentProps } from 'react'
 
 type Props = {
   price: string | number
-}
+} & ComponentProps<'span'>
 
-export const Currency = ({ price }: Props) => {
-  return <div className="font-semibold">{formatPrice(Number(price))}</div>
+export const Currency = ({ price, className, ...props }: Props) => {
+  return (
+    <span {...props} className={cn('font-semibold', className)}>
+      {formatPrice(Number(price))}
+    </span>
+  )
 }
