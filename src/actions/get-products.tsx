@@ -28,6 +28,13 @@ export const getProducts = async (query: Query): Promise<ProductType[]> => {
     )
 
     const response = await fetch(url)
+
+    if (response.status !== 200) {
+      console.error("Couldn't get products")
+      console.error(await response.json())
+      return []
+    }
+
     return await response.json()
   } catch (error) {
     console.error('Error on getting products.', error)
