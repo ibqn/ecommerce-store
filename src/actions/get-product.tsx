@@ -7,6 +7,13 @@ export const getProduct = async (
 ): Promise<ProductType | null> => {
   try {
     const response = await fetch(`${API_PRODUCT_URL}/${productId}`)
+
+    if (response.status !== 200) {
+      console.error('product not found')
+      console.error(await response.json())
+      return null
+    }
+
     return await response.json()
   } catch (error) {
     console.error('Error on getting products.', error)
