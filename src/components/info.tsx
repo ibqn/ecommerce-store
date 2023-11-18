@@ -1,6 +1,8 @@
 import { ProductType } from '@/types'
 import { Currency } from '@/components/currency'
 import { ColorCircle } from '@/components/color-circle'
+import { Button } from '@/components/ui/button'
+import { ShoppingCart } from 'lucide-react'
 
 type Props = {
   product: ProductType
@@ -31,6 +33,13 @@ export const Info = ({ product }: Props) => {
           <h3 className="font-semibold text-black">Color:</h3>
           <ColorCircle color={color.value} />
         </div>
+      </div>
+
+      <div className="mt-10 flex items-center gap-x-3">
+        <Button className="flex items-center gap-x-2 rounded-full">
+          Add to Cart
+          <ShoppingCart />
+        </Button>
       </div>
     </div>
   )
