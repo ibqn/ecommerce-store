@@ -1,15 +1,17 @@
 import { ProductType } from '@/types'
 import { Currency } from '@/components/currency'
+import { ColorCircle } from '@/components/color-circle'
 
 type Props = {
   product: ProductType
 }
 
 export const Info = ({ product }: Props) => {
-  const { name, price, size } = product
+  const { name, price, size, color } = product
+
   return (
     <div>
-      <h1 className="text-3xl font-bold text-gray-900">{name}</h1>
+      <h1 className="lead text-3xl font-bold text-gray-900">{name}</h1>
 
       <div className="mt-3 flex items-end justify-between">
         <p className="text-2xl text-gray-900">
@@ -19,8 +21,16 @@ export const Info = ({ product }: Props) => {
 
       <hr className="my-4" />
 
-      <div className="flex items-center gap-x-4">
-        <h3 className="font-semibold text-black">Size: {size?.name}</h3>
+      <div className="flex flex-col gap-y-6">
+        <div className="flex items-center gap-x-4">
+          <h3 className="font-semibold text-black">Size:</h3>
+          <div>{size.name}</div>
+        </div>
+
+        <div className="flex items-center gap-x-4">
+          <h3 className="font-semibold text-black">Color:</h3>
+          <ColorCircle color={color.value} />
+        </div>
       </div>
     </div>
   )
