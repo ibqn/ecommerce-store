@@ -1,11 +1,15 @@
+import { cn } from '@/utils'
+import { type ComponentProps } from 'react'
+
 type Props = {
   color: string
-}
+} & ComponentProps<'div'>
 
-export const ColorCircle = ({ color }: Props) => {
+export const ColorCircle = ({ color, className, ...props }: Props) => {
   return (
     <div
-      className="rounded-full border p-4"
+      {...props}
+      className={cn('rounded-full border p-4', className)}
       style={{ backgroundColor: color }}
     />
   )
