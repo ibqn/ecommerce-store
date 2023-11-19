@@ -14,7 +14,7 @@ export const getBillboards = async (): Promise<BillboardType[]> => {
 
     return await response.json()
   } catch (error) {
-    console.error('Error on getting billboards.', error)
+    console.error('Error on getting billboards', error)
     return []
   }
 }

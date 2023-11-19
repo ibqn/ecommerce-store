@@ -16,7 +16,7 @@ export const getProduct = async (
 
     return await response.json()
   } catch (error) {
-    console.error('Error on getting products.', error)
+    console.error('Error on getting product', error)
     return null
   }
 }

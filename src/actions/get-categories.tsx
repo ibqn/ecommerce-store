@@ -14,7 +14,7 @@ export const getCategories = async (): Promise<CategoryType[]> => {
 
     return await response.json()
   } catch (error) {
-    console.error('Error on getting categories.', error)
+    console.error('Error on getting categories', error)
     return []
   }
 }

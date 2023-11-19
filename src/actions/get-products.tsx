@@ -37,7 +37,7 @@ export const getProducts = async (query: Query): Promise<ProductType[]> => {
 
     return await response.json()
   } catch (error) {
-    console.error('Error on getting products.', error)
+    console.error('Error on getting products', error)
     return []
   }
 }

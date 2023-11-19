@@ -14,7 +14,7 @@ export const getColors = async (): Promise<ColorType[]> => {
 
     return await response.json()
   } catch (error) {
-    console.error('Error on getting colors.', error)
+    console.error('Error on getting colors', error)
     return []
   }
 }

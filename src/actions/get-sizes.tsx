@@ -14,7 +14,7 @@ export const getSizes = async (): Promise<SizeType[]> => {
 
     return await response.json()
   } catch (error) {
-    console.error('Error on getting sizes.', error)
+    console.error('Error on getting sizes', error)
     return []
   }
 }
