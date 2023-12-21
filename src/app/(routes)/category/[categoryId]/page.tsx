@@ -41,7 +41,7 @@ export default async function Page({ params, searchParams }: Props) {
 
         <div className="px-4 pb-24 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-5 lg:gap-x-8">
-            {/* <MobileFilter sizes={sizes} colors={colors} /> */}
+            <MobileFilter sizes={sizes} colors={colors} />
 
             <div className="hidden lg:block">
               <Filter valueKey="sizeId" name="Sizes" data={sizes} />
