@@ -1,12 +1,14 @@
-'use client'
+"use client"
 
-import { type ProductType } from '@/types'
-import Image from 'next/image'
-import { IconButton } from '@/components/icon-button'
-import { ShoppingCart } from 'lucide-react'
-import { Currency } from '@/components/currency'
-import { useRouter } from 'next/navigation'
-import { PreviewDialog } from '@/components/preview-dialog'
+import { type ProductType } from "@/types"
+import Image from "next/image"
+import { IconButton } from "@/components/icon-button"
+import { ShoppingCart } from "lucide-react"
+import { Currency } from "@/components/currency"
+import { useRouter } from "next/navigation"
+import { PreviewDialog } from "@/components/preview-dialog"
+import { type MouseEventHandler } from "react"
+import { useCart } from "@/hooks/use-cart"
 
 type Props = {
   product: ProductType
@@ -17,8 +19,15 @@ export const ProductCard = ({ product }: Props) => {
 
   const router = useRouter()
 
+  const cart = useCart()
+
   const handleClick = () => {
     router.push(`/product/${id}`)
+  }
+
+  const addToCart: MouseEventHandler = (event) => {
+    event.stopPropagation()
+    cart.addItem(product)
   }
 
   return (
@@ -41,6 +50,7 @@ export const ProductCard = ({ product }: Props) => {
             </div>
 
             <IconButton
+              onClick={addToCart}
               icon={<ShoppingCart size={20} className="text-gray-600" />}
             />
           </div>
