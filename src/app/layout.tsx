@@ -1,13 +1,14 @@
-import type { Metadata } from 'next'
-import { Urbanist } from 'next/font/google'
-import './globals.css'
-import { Navbar, Footer } from '@/components'
+import type { Metadata } from "next"
+import { Urbanist } from "next/font/google"
+import "./globals.css"
+import { Navbar, Footer } from "@/components"
+import { Toaster } from "@/components/ui/toaster"
 
-const font = Urbanist({ subsets: ['latin'] })
+const font = Urbanist({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: 'Store',
-  description: 'Ecommerce Store',
+  title: "Store",
+  description: "Ecommerce Store",
 }
 
 type Props = {
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: Props) {
         <Navbar />
         {children}
         <Footer />
+        <Toaster />
       </body>
     </html>
   )
