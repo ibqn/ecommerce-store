@@ -2,10 +2,11 @@
 
 import { type ProductType } from '@/types'
 import Image from 'next/image'
-import { IconButton } from './icon-button'
-import { Expand, ShoppingCart } from 'lucide-react'
-import { Currency } from './currency'
+import { IconButton } from '@/components/icon-button'
+import { ShoppingCart } from 'lucide-react'
+import { Currency } from '@/components/currency'
 import { useRouter } from 'next/navigation'
+import { PreviewDialog } from '@/components/preview-dialog'
 
 type Props = {
   product: ProductType
@@ -35,7 +36,10 @@ export const ProductCard = ({ product }: Props) => {
 
         <div className="absolute bottom-5 w-full px-6 opacity-0 transition group-hover:opacity-100">
           <div className="flex justify-center gap-x-6">
-            <IconButton icon={<Expand size={20} className="text-gray-600" />} />
+            <div onClick={(event) => event.stopPropagation()}>
+              <PreviewDialog product={product} />
+            </div>
+
             <IconButton
               icon={<ShoppingCart size={20} className="text-gray-600" />}
             />
