@@ -1,8 +1,11 @@
-import { ProductType } from '@/types'
-import { Currency } from '@/components/currency'
-import { ColorCircle } from '@/components/color-circle'
-import { Button } from '@/components/ui/button'
-import { ShoppingCart } from 'lucide-react'
+"use client"
+
+import { ProductType } from "@/types"
+import { Currency } from "@/components/currency"
+import { ColorCircle } from "@/components/color-circle"
+import { Button } from "@/components/ui/button"
+import { ShoppingCart } from "lucide-react"
+import { useCart } from "@/hooks/use-cart"
 
 type Props = {
   product: ProductType
@@ -10,6 +13,12 @@ type Props = {
 
 export const Info = ({ product }: Props) => {
   const { name, price, size, color } = product
+
+  const addItem = useCart((state) => state.addItem)
+
+  const addToCart = () => {
+    addItem(product)
+  }
 
   return (
     <div>
@@ -36,7 +45,10 @@ export const Info = ({ product }: Props) => {
       </div>
 
       <div className="mt-10 flex items-center gap-x-3">
-        <Button className="flex items-center gap-x-2 rounded-full">
+        <Button
+          onClick={addToCart}
+          className="flex items-center gap-x-2 rounded-full"
+        >
           Add to Cart
           <ShoppingCart />
         </Button>
