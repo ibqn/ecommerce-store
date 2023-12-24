@@ -1,9 +1,9 @@
-import { getProduct, getProducts } from '@/actions'
-import { Container } from '@/components'
-import { EmptyState } from '@/components/empty-state'
-import { Gallery } from '@/components/gallery'
-import { Info } from '@/components/info'
-import { ProductList } from '@/components/product-list'
+import { getProduct, getProducts } from "@/actions"
+import { Container } from "@/components"
+import { EmptyState } from "@/components/empty-state"
+import { Gallery } from "@/components/gallery"
+import { Info } from "@/components/info"
+import { ProductList } from "@/components/product-list"
 
 type Props = {
   params: {
@@ -15,7 +15,7 @@ export default async function Page({ params }: Props) {
   const { productId } = params
 
   const product = await getProduct(productId)
-  console.log('product', product)
+  // console.log('product', product)
 
   if (!product) {
     return <EmptyState showReset />
