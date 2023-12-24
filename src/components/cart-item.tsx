@@ -40,8 +40,8 @@ export const CartItem = ({ product }: Props) => {
           </div>
 
           <div className="mt-1 flex divide-x text-sm text-gray-500">
-            <p className="px-4">{product.color.name}</p>
-            <p className="px-4">{product.size.name}</p>
+            <p className="px-4">{product.color?.name}</p>
+            <p className="px-4">{product.size?.name}</p>
           </div>
 
           <Currency price={product.price} />
