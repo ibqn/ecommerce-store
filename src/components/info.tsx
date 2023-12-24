@@ -1,6 +1,6 @@
 "use client"
 
-import { ProductType } from "@/types"
+import { type ProductType } from "@/types"
 import { Currency } from "@/components/currency"
 import { ColorCircle } from "@/components/color-circle"
 import { Button } from "@/components/ui/button"
