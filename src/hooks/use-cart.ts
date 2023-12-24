@@ -36,7 +36,9 @@ export const useCart = create(
         })
       },
       removeItem: (productId: string) => {
-        set({ items: get().items.filter(({ id }) => productId !== id) })
+        set((state) => ({
+          items: state.items.filter(({ id }) => productId !== id),
+        }))
         toast({
           title: "Chart updated",
           description: "Item was removed from cart.",
