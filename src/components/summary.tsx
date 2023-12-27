@@ -31,7 +31,7 @@ export const Summary = (props: Props) => {
   }
 
   useEffect(() => {
-    if (searchParams.get("success")) {
+    if (searchParams.has("success")) {
       toast({
         title: "Payment succeeded",
         description: "Payment completed.",
@@ -40,7 +40,7 @@ export const Summary = (props: Props) => {
       removeAll()
     }
 
-    if (searchParams.get("canceled")) {
+    if (searchParams.has("cancel")) {
       toast({
         title: "Payment canceled",
         description: "Payment was canceled.",
