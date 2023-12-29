@@ -13,7 +13,6 @@ type Props = {
 export const Gallery = ({ images }: Props) => {
   const [selected, setSelected] = useState<string>(images?.[0]?.id)
 
-  console.log('image', images)
   return (
     <Tabs
       value={selected}
