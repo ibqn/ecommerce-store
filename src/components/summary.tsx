@@ -22,6 +22,8 @@ export const Summary = (props: Props) => {
     [items]
   )
 
+  const cartEmpty = useMemo(() => items.length === 0, [items])
+
   const onCheckout = async () => {
     const response = await axios.post(API_URL, {
       productIds: items.map(({ id }) => id),
@@ -60,7 +62,11 @@ export const Summary = (props: Props) => {
         </div>
       </div>
 
-      <Button onClick={onCheckout} className="mt-6 w-full rounded-full">
+      <Button
+        onClick={onCheckout}
+        disabled={cartEmpty}
+        className="mt-6 w-full rounded-full"
+      >
         Checkout
       </Button>
     </div>
