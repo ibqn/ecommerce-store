@@ -1,13 +1,14 @@
 import { cn } from '@/utils'
-import { type ComponentProps, type ReactElement } from 'react'
+import { forwardRef, type ComponentProps, type ReactElement } from 'react'
 
 type Props = {
   icon: ReactElement
 } & ComponentProps<'button'>
 
-export const IconButton = ({ className, icon, ...props }: Props) => {
+export const IconButton = forwardRef<HTMLButtonElement, Props>(({ className, icon, ...props }, ref) => {
   return (
     <button
+      ref={ref}
       {...props}
       className={cn(
         'flex items-center justify-center rounded-full border bg-white p-2 shadow-md',
@@ -18,4 +19,6 @@ export const IconButton = ({ className, icon, ...props }: Props) => {
       {icon}
     </button>
   )
-}
+})
+
+IconButton.displayName = "IconButton"
